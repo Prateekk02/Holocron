@@ -129,8 +129,19 @@ postRouter.get('/bulk', async (c) => {
   console.log("Fetching posts..."); 
 
   try {
-    const posts = await prisma.post.findMany(); // Await the promise to get the posts
-    return c.json({ posts }); // Return the fetched posts
+    const posts = await prisma.post.findMany({
+        select:{
+          content:true,
+          title:true,
+          id:true,
+          author:{
+              select:{
+                name:true
+              }
+          }
+        }
+    }); 
+    return c.json({ posts }); 
   } catch (error) {
     console.error("Error fetching posts:", error);
     c.status(500)
