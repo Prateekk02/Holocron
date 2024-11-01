@@ -9,7 +9,7 @@ import { SearchBar } from "./SearchBar"
 import { BlogDetail } from "./BlogDetail"
 import { Avatar } from "./Avatar"
 import { PublishBar } from "./PublishBar"
-import { BlogSkeleton } from "./BlogSkeleton"
+import {BlogSkeleton} from "./BlogSkeleton" 
 
 
 
