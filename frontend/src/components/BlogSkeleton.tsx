@@ -1,4 +1,4 @@
-export const Skeleton = () =>{
+export const BlogSkeleton = () =>{
     return <>
     
         <div role="status" className="max-w-sm animate-pulse pt-3">

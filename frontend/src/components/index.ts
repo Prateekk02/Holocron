@@ -9,7 +9,7 @@ import { SearchBar } from "./SearchBar"
 import { BlogDetail } from "./BlogDetail"
 import { Avatar } from "./Avatar"
 import { PublishBar } from "./PublishBar"
-import { Skeleton } from "./skeleton"
+import { BlogSkeleton } from "./BlogSkeleton"
 
 
 
@@ -26,5 +26,5 @@ export{
     BlogDetail,
     Avatar,
     PublishBar,
-    Skeleton
+    BlogSkeleton
 } 

@@ -1,4 +1,4 @@
-import { BlogCard,AppBar,Skeleton } from "../components"
+import { BlogCard,AppBar,BlogSkeleton } from "../components"
 import { useBlogs } from "../hooks"
 
 
@@ -8,10 +8,10 @@ export const Blogs = () => {
 
     if(loading){
         return<>
-            <Skeleton />   
-            <Skeleton />   
-            <Skeleton />   
-            <Skeleton />   
+            <BlogSkeleton />   
+            <BlogSkeleton />   
+            <BlogSkeleton />   
+            <BlogSkeleton />   
         </>
     }
 
