@@ -1,4 +1,6 @@
 import { SearchBar } from "./SearchBar";
+import { Avatar } from "./Avatar";
+import { Link } from "react-router-dom";
 
 interface AppBarProps {
     name: string;
@@ -9,11 +11,13 @@ export const AppBar = ({ name }: AppBarProps) => {
         <>
             <div className="flex items-center justify-between p-2 bg-white shadow-md">
                 
-                <div className="font-bold text-2xl flex items-center m-2 font-serif transition-transform duration-300 hover:translate-y-[-4px] hover:scale-105 cursor-pointer">
-                    <span className="bg-gradient-to-r from-emerald-600 to-blue-800 bg-clip-text text-transparent">
-                        Holocron
-                    </span>
-                </div>
+                <Link to={`/blogs`}>
+                    <div className="font-bold text-4xl flex items-center m-2 font-serif transition-transform duration-300 hover:translate-y-[-4px] hover:scale-105 cursor-pointer">
+                        <span className="bg-gradient-to-r from-emerald-600 to-blue-800 bg-clip-text text-transparent">
+                            Holocron
+                        </span>
+                    </div>
+                </Link>
                 
             
                 <div className="flex items-center flex-grow mx-2">
@@ -21,24 +25,26 @@ export const AppBar = ({ name }: AppBarProps) => {
                         <SearchBar />
                     </div>
                     <div className="flex-none m-2">
-                        <div className="flex flex-row items-center hover:scale-110 transition-transform duration-300 cursor-pointer ">
-                            
-                            <div className="flex items-center justify-center">
-                                <svg
-                                    className="w-5 h-5 opacity-70"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 32 32"
-                                    id="write"
-                                    aria-label="Write"
-                                >
-                                    <path d="M25,21h2v5a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V6A3,3,0,0,1,5,3H24a3,3,0,0,1,3,3V7.15H25V6a1,1,0,0,0-1-1H5A1,1,0,0,0,4,6V26a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1Zm5.34-8.84a3,3,0,0,1-.88,2.13l-1.59,1.58L20.3,23.45a1,1,0,0,1-.57.28l-3.3.48h-.15a1,1,0,0,1-.7-.3,1,1,0,0,1-.29-.85l.48-3.3a1,1,0,0,1,.28-.57l7.58-7.57L25.21,10a3.09,3.09,0,0,1,4.25,0A3,3,0,0,1,30.34,12.16Zm-4.59,3-1.41-1.41L17.7,20.38,17.46,22l1.66-.24Zm2.59-3a1,1,0,0,0-.3-.7,1,1,0,0,0-1.41,0l-.88.88,1.41,1.41.88-.88A1,1,0,0,0,28.34,12.16ZM14,24V22H7v2Z"></path>
-                                </svg>
+                        <Link to={"/publish"}>
+                            <div className="flex flex-row items-center hover:scale-110 transition-transform duration-300 cursor-pointer ">
+                                
+                                <div className="flex items-center justify-center">
+                                    <svg
+                                        className="w-5 h-5 opacity-70"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        viewBox="0 0 32 32"
+                                        id="write"
+                                        aria-label="Write"
+                                    >
+                                        <path d="M25,21h2v5a3,3,0,0,1-3,3H5a3,3,0,0,1-3-3V6A3,3,0,0,1,5,3H24a3,3,0,0,1,3,3V7.15H25V6a1,1,0,0,0-1-1H5A1,1,0,0,0,4,6V26a1,1,0,0,0,1,1H24a1,1,0,0,0,1-1Zm5.34-8.84a3,3,0,0,1-.88,2.13l-1.59,1.58L20.3,23.45a1,1,0,0,1-.57.28l-3.3.48h-.15a1,1,0,0,1-.7-.3,1,1,0,0,1-.29-.85l.48-3.3a1,1,0,0,1,.28-.57l7.58-7.57L25.21,10a3.09,3.09,0,0,1,4.25,0A3,3,0,0,1,30.34,12.16Zm-4.59,3-1.41-1.41L17.7,20.38,17.46,22l1.66-.24Zm2.59-3a1,1,0,0,0-.3-.7,1,1,0,0,0-1.41,0l-.88.88,1.41,1.41.88-.88A1,1,0,0,0,28.34,12.16ZM14,24V22H7v2Z"></path>
+                                    </svg>
+                                </div>
+                                
+                                <div className="text-sm  ml-2 text-slate-600 font-semibold">
+                                    Write
+                                </div>
                             </div>
-                            
-                            <div className="text-sm  ml-2 text-slate-600 font-semibold">
-                                Write
-                            </div>
-                        </div>
+                        </Link>
                     </div>
 
                     <div className="flex-none m-2">
@@ -53,9 +59,7 @@ export const AppBar = ({ name }: AppBarProps) => {
                         </div>
                     </div>
                     <div className="flex-none m-2">
-                    <div className="relative inline-flex items-center justify-center w-6 h-6 overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 hover:scale-110 transition-transform duration-300 cursor-pointer ">
-                        <span className="font-medium text-gray-600 dark:text-gray-300">{name ? name[0] : ''}</span>
-                    </div>
+                        <Avatar name={name}/>
                     </div>
                 </div>
             </div>

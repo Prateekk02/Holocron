@@ -6,6 +6,11 @@ import { BlogCard } from "./BlogCard"
 import { BlogCardHeader } from "./BlogCardHeader"
 import { AppBar } from "./AppBar"
 import { SearchBar } from "./SearchBar"
+import { BlogDetail } from "./BlogDetail"
+import { Avatar } from "./Avatar"
+import { PublishBar } from "./PublishBar"
+import { Skeleton } from "./skeleton"
+
 
 
 
@@ -17,5 +22,9 @@ export{
     BlogCard,
     BlogCardHeader,
     AppBar,
-    SearchBar
+    SearchBar,
+    BlogDetail,
+    Avatar,
+    PublishBar,
+    Skeleton
 } 

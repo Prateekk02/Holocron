@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios"; 
 import { BACKEND_URL } from "../config";
 
-export interface BlogProps {
+interface Blog {
     content: string;
     title: string;
     id: string;
@@ -11,22 +11,22 @@ export interface BlogProps {
     };
 }
 
-export const useBlog = ({id}:{id:string}) => {
+export const useBlogs = () => {
     const [loading, setLoading] = useState(true);
-    const [blog, setBlog] = useState<BlogProps>();
+    const [blogs, setBlogs] = useState<Blog[]>([]);
     
     console.log('Token:', localStorage.getItem('token'));
 
     useEffect(() => {
-        // Define an async function within the useEffect
+        
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get(`${BACKEND_URL}/api/v1/blog/${id}`, {
+                const res = await axios.get(`${BACKEND_URL}/api/v1/blog/bulk`, {
                     headers: {
                         Authorization: localStorage.getItem('token') || ''
                     }
                 });
-                setBlog(res.data.post);
+                setBlogs(res.data.posts);
             } catch (e) {
                 console.error("Error fetching blogs:", e);
             } finally {
@@ -34,12 +34,12 @@ export const useBlog = ({id}:{id:string}) => {
             }
         };
 
-        // Immediately invoke the async function
+        
         fetchBlogs();
-    }, [id]);
+    }, []);
 
     return {
         loading,
-        blog
+        blogs
     };
 };
